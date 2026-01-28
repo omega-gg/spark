@@ -1,0 +1,20 @@
+#--------------------------------------------------------------------------------------------------
+# Windows
+#--------------------------------------------------------------------------------------------------
+
+jobs:
+- job: linux64
+  pool:
+    vmImage: "ubuntu-latest"
+  steps:
+  - bash: |
+      docker run -d --name ubuntu -v $PWD:/spark amd64/ubuntu:22.04 tail -f /dev/null
+      docker exec -t ubuntu bash -c "cd /spark;
+                                     export DEBIAN_FRONTEND=noninteractive;
+                                     apt-get update;
+                                     apt-get -y install sudo curl zip git;
+                                     sh build.sh;
+                                     cd site;
+                                     zip -rq ../spark.zip *"
+  - publish: $(System.DefaultWorkingDirectory)/spark.zip
+    artifact: spark
