@@ -70,9 +70,9 @@ sudo apt-get install -y git python3 python3-pip python3-venv nodejs
 if ! command -v rustup >/dev/null 2>&1; then
 
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-
-    source "$HOME/.cargo/env"
 fi
+
+. "$HOME/.cargo/env"
 
 rustup target add wasm32-unknown-unknown
 
