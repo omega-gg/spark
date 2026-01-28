@@ -28,8 +28,6 @@ repository="https://github.com/sparkjsdev/spark.git"
 
 version="v0.1.10"
 
-python="Programs/Python/Python312/Scripts"
-
 #--------------------------------------------------------------------------------------------------
 # Functions
 #--------------------------------------------------------------------------------------------------
@@ -64,7 +62,7 @@ sudo apt-get update
 sudo apt-get install -y git python3 python3-pip python3-venv nodejs npm rustc cargo
 
 check git
-check python
+check python3
 check node
 check npm
 check rustc
@@ -87,26 +85,12 @@ git clone --depth=1 --branch "$version" "$repository"
 cd "$name"
 
 #--------------------------------------------------------------------------------------------------
-# Environment
-#--------------------------------------------------------------------------------------------------
-
-if [ -n "$LOCALAPPDATA" ]; then
-
-    path="$(cygpath "$LOCALAPPDATA")/$python"
-
-    if [ -d "$path" ]; then
-
-        export PATH="$PATH:$path"
-    fi
-fi
-
-#--------------------------------------------------------------------------------------------------
 # Install
 #--------------------------------------------------------------------------------------------------
 
-python -m pip install --upgrade pip
+python3 -m pip install --upgrade pip
 
-python -m pip install mkdocs mkdocs-material
+python3 -m pip install mkdocs mkdocs-material
 
 if [ -f "package-lock.json" ]; then
 
