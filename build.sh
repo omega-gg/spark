@@ -54,16 +54,22 @@ if [ $# != 1 ] || [ "$1" != "default" ]; then
 fi
 
 #--------------------------------------------------------------------------------------------------
-# Environment
+# Install
 #--------------------------------------------------------------------------------------------------
 
 sudo apt-get update
 
-sudo apt-get remove -y libnode-dev nodejs npm
+sudo apt-get remove -y nodejs npm libnode-dev nodejs-doc || true
+sudo apt-get autoremove -y
+sudo apt-get clean
 
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 
 sudo apt-get install -y git python3 python3-pip python3-venv nodejs npm rustc cargo
+
+#--------------------------------------------------------------------------------------------------
+# Environment
+#--------------------------------------------------------------------------------------------------
 
 check git
 check python3
