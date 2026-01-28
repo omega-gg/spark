@@ -59,7 +59,11 @@ fi
 
 sudo apt-get update
 
-sudo apt-get install -y git python3 python3-pip python3-venv nodejs npm rustc cargo
+sudo apt-get install -y git python3 python3-pip python3-venv npm rustc cargo
+
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+
+sudo apt-get install -y nodejs
 
 check git
 check python3
