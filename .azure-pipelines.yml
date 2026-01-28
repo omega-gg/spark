@@ -13,7 +13,7 @@ jobs:
                                      export DEBIAN_FRONTEND=noninteractive;
                                      apt-get update;
                                      apt-get -y install sudo curl zip git;
-                                     sh build.sh;
+                                     sh build.sh default;
                                      cd site;
                                      zip -rq ../spark.zip *"
   - publish: $(System.DefaultWorkingDirectory)/spark.zip
