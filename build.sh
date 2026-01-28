@@ -59,13 +59,13 @@ fi
 
 sudo apt-get update
 
-sudo apt-get remove -y nodejs npm libnode-dev nodejs-doc || true
+sudo apt-get remove --purge -y nodejs npm libnode-dev node-cacache node-gyp || true
 sudo apt-get autoremove -y
 sudo apt-get clean
 
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 
-sudo apt-get install -y git python3 python3-pip python3-venv nodejs npm rustc cargo
+sudo apt-get install -y git python3 python3-pip python3-venv nodejs rustc cargo
 
 #--------------------------------------------------------------------------------------------------
 # Environment
